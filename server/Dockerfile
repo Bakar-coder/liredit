@@ -5,7 +5,7 @@ COPY . .
 RUN yarn install
 RUN yarn add argon2
 COPY .env .env
-COPY ./build .
+COPY ./build ./build
 ENV NODE_ENV production
 EXPOSE 8080
 USER node
