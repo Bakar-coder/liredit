@@ -1,59 +1,43 @@
 version: "3.9"
 
 services:
-  webserver:
-    build:
-      context: ./nginx
-    container_name: web_nginx_proxy
-    networks:
-      - network
+  nginx:
+    build: .
+     context: ./nginx
     restart: unless-stopped
     ports:
       - 80:80
-      - 443:443
 
-  nextapp:
+  nextjs:
     build:
       context: ./client
-    env_file: ./client/.env
-    container_name: nextapp
-    stdin_open: true
+    container_name: nextjs
     restart: unless-stopped
-    ports:
+    ports: 
       - 3000:3000
-    networks:
-      - network
-    volumes:
-      - ./client:/usr/app
-      - /usr/app/node-modules
-
+  
   server:
-    build:
+    build: 
       context: ./server
-    env_file: ./server/.env.production
-    container_name: web_server
-    networks:
-      - network
     restart: unless-stopped
-    ports:
+    container_name: server
+    ports: 
       - 8080:8080
-    depends_on:
-      - postgres
-      - redis
 
   postgres:
     image: postgres:13.2-alpine
     restart: unless-stopped
-    container_name: web_postres_database
+    container_name: postres_database
     environment:
       - POSTGRES_PASSWORD=password
     volumes:
       - postgres_data:/var/lib/postgres/data
     networks:
       - network
+
   redis:
     image: redis:6.2.1-alpine
-    container_name: web_redis_database
+    container_name: redis_database
     restart: unless-stopped
     ports:
       - 6379:6379

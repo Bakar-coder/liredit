@@ -1,29 +1,28 @@
-FROM node:15.14.0-alpine AS deps
-RUN apk add --no-cache libc6-compat
-WORKDIR /usr/app/client
-COPY package.json yarn.lock ./
-RUN yarn install
+# Base on offical Node.js Alpine image
+FROM node:15.14.0-alpine
 
-FROM node:15.14.0-alpine AS builder
-WORKDIR /usr/app/client
-COPY . .
-COPY .env.production .env
-COPY --from=deps /usr/app/client/node_modules ./node_modules
+# Set working directory
+WORKDIR /usr/app
+
+# Copy package.json and package-lock.json before other files
+# Utilise Docker cache to save re-installing dependencies if unchanged
+COPY ./package*.json ./yarn.lock ./
+
+# Install dependencies
+RUN yarn install --frozen-lockfile
+
+# Copy all files
+COPY ./ ./
+
+# Build app
 RUN yarn build
 
-FROM node:15.14.0-alpine AS runner
-WORKDIR /usr/app/client
-ENV NODE_ENV production
-
-COPY --from=builder /usr/app/client/public ./public
-COPY --from=builder /usr/app/client/.next ./.next
-COPY --from=builder /usr/app/client/node_modules ./node_modules
-COPY --from=builder /usr/app/client/package.json ./package.json
-
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextapp -u 1001
-RUN chown -R nextapp:nodejs /usr/app/client/.next
-USER nextapp
-
+# Expose the listening port
 EXPOSE 3000
-CMD ["yarn", "start"]
+
+# Run container as non-root (unprivileged) user
+# The node user is provided in the Node.js Alpine base image
+USER node
+
+# Run npm start script with PM2 when container starts
+CMD [ "yarn", "start" ]
