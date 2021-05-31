@@ -2,8 +2,8 @@ version: "3.9"
 
 services:
   nginx:
-    build: .
-     context: ./nginx
+    build:
+      context: ./nginx
     restart: unless-stopped
     ports:
       - 80:80
@@ -13,15 +13,15 @@ services:
       context: ./client
     container_name: nextjs
     restart: unless-stopped
-    ports: 
+    ports:
       - 3000:3000
-  
+
   server:
-    build: 
+    build:
       context: ./server
     restart: unless-stopped
     container_name: server
-    ports: 
+    ports:
       - 8080:8080
 
   postgres:
