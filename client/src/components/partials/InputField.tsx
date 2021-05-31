@@ -31,14 +31,14 @@ const InputField: FC<InputFieldTypes> = (props) => {
             ? "email"
             : "text"
         }
-        required={!!props.required}
+        required={props.required}
       />
       {(field.name === "description" || field.name === "details") && (
         <Textarea
           {...field}
           id={props.id}
           placeholder={props.placeholder}
-          required={!!props.required}
+          required={props.required}
         />
       )}
       {error && <FormErrorMessage>{error}</FormErrorMessage>}
