@@ -4,9 +4,16 @@ services:
   nginx:
     build:
       context: ./nginx
-    restart: unless-stopped
-    ports:
-      - 80:80
+      args:
+        - CERTBOT_EMAIL=ghettohustlers256@gmail.com #replace with your own email
+        - DOMAIN_LIST=ghettohustler.com,api.ghettohustler.com,www.ghettohustler.com #replace with your own domains
+      restart: always
+      volumes:
+        - ./nginx/nginx.conf:/etc/nginx/conf.d
+        - letsencrypt:/etc/letsencrypt
+      ports:
+        - 80:80
+        - 443:443
 
   nextjs:
     build:
