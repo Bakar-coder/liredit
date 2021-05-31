@@ -6,6 +6,7 @@ RUN yarn
 COPY .env .env
 ENV NODE_ENV production
 RUN yarn add argon2
+RUN yarn build
 EXPOSE 8080
 USER node
 CMD ["yarn", "start"]
