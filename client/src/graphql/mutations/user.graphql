@@ -1,0 +1,43 @@
+mutation Register(
+  $firstName: String!
+  $lastName: String!
+  $username: String!
+  $email: String!
+  $password: String!
+  $password2: String!
+  $admin: Boolean
+  $seller: Boolean
+) {
+  register(
+    opts: {
+      firstName: $firstName
+      lastName: $lastName
+      username: $username
+      email: $email
+      password: $password
+      password2: $password2
+      admin: $admin
+      seller: $seller
+    }
+  ) {
+    ...userData
+  }
+}
+
+mutation Login($usernameOrEmail: String!, $password: String!) {
+  login(opts: { usernameOrEmail: $usernameOrEmail, password: $password }) {
+    ...userData
+  }
+}
+
+mutation Logout {
+  logout
+}
+
+mutation ForgotPassword($email: String!) {
+  forgotPassword(email: $email)
+}
+
+mutation ChangePassword($token: String!, $newPassword: String!) {
+  changePassword(token: $token, newPassword: $newPassword)
+}

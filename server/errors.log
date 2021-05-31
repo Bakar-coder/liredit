@@ -1,0 +1,402 @@
+{
+  message: 'Invalid use of NULL value',
+  code: 'ER_INVALID_USE_OF_NULL',
+  errno: 1138,
+  sqlState: '22004',
+  sqlMessage: 'Invalid use of NULL value',
+  name: 'QueryFailedError',
+  query: 'ALTER TABLE `post` ADD PRIMARY KEY (`id`, `userId`)',
+  parameters: [],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-05-17T19:12:13.083Z'
+}
+{
+  message: 'Invalid use of NULL value',
+  code: 'ER_INVALID_USE_OF_NULL',
+  errno: 1138,
+  sqlState: '22004',
+  sqlMessage: 'Invalid use of NULL value',
+  name: 'QueryFailedError',
+  query: 'ALTER TABLE `post` ADD PRIMARY KEY (`id`, `userId`)',
+  parameters: [],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-05-17T19:17:26.770Z'
+}
+{
+  message: "Table 'liredit.post_review' doesn't exist",
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sqlState: '42S02',
+  sqlMessage: "Table 'liredit.post_review' doesn't exist",
+  name: 'QueryFailedError',
+  query: 'DROP INDEX `FK_e53e2b8fe7e7f526fe6e8fcb5c7` ON `post_review`',
+  parameters: [],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-05-17T19:20:55.301Z'
+}
+{
+  message: "Referencing column 'postUserId' and referenced column 'userId' in foreign key constraint 'FK_82ca4e97022cff5e7f9360fe878' are incompatible.",
+  code: undefined,
+  errno: 3780,
+  sqlState: 'HY000',
+  sqlMessage: "Referencing column 'postUserId' and referenced column 'userId' in foreign key constraint 'FK_82ca4e97022cff5e7f9360fe878' are incompatible.",
+  name: 'QueryFailedError',
+  query: 'ALTER TABLE `post_review` ADD CONSTRAINT `FK_82ca4e97022cff5e7f9360fe878` FOREIGN KEY (`postId`, `postUserId`) REFERENCES `post`(`id`,`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION',
+  parameters: [],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-05-17T19:23:42.304Z'
+}
+{
+  message: "Referencing column 'postUserId' and referenced column 'userId' in foreign key constraint 'FK_82ca4e97022cff5e7f9360fe878' are incompatible.",
+  code: undefined,
+  errno: 3780,
+  sqlState: 'HY000',
+  sqlMessage: "Referencing column 'postUserId' and referenced column 'userId' in foreign key constraint 'FK_82ca4e97022cff5e7f9360fe878' are incompatible.",
+  name: 'QueryFailedError',
+  query: 'ALTER TABLE `post_review` ADD CONSTRAINT `FK_82ca4e97022cff5e7f9360fe878` FOREIGN KEY (`postId`, `postUserId`) REFERENCES `post`(`id`,`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION',
+  parameters: [],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-05-17T19:50:34.905Z'
+}
+{
+  message: "Referencing column 'postUserId' and referenced column 'userId' in foreign key constraint 'FK_82ca4e97022cff5e7f9360fe878' are incompatible.",
+  code: undefined,
+  errno: 3780,
+  sqlState: 'HY000',
+  sqlMessage: "Referencing column 'postUserId' and referenced column 'userId' in foreign key constraint 'FK_82ca4e97022cff5e7f9360fe878' are incompatible.",
+  name: 'QueryFailedError',
+  query: 'ALTER TABLE `post_review` ADD CONSTRAINT `FK_82ca4e97022cff5e7f9360fe878` FOREIGN KEY (`postId`, `postUserId`) REFERENCES `post`(`id`,`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION',
+  parameters: [],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-05-17T20:05:38.430Z'
+}
+{
+  message: "Table 'post_review' already exists",
+  code: 'ER_TABLE_EXISTS_ERROR',
+  errno: 1050,
+  sqlState: '42S01',
+  sqlMessage: "Table 'post_review' already exists",
+  name: 'QueryFailedError',
+  query: 'CREATE TABLE `post_review` (`reviewerId` int NOT NULL, `postId` bigint NOT NULL, `rating` float NOT NULL, `comment` text NOT NULL, `postUserId` int NULL, PRIMARY KEY (`reviewerId`, `postId`)) ENGINE=InnoDB',
+  parameters: [],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-05-17T20:14:04.282Z'
+}
+{
+  message: "Referencing column 'postUserId' and referenced column 'userId' in foreign key constraint 'FK_82ca4e97022cff5e7f9360fe878' are incompatible.",
+  code: undefined,
+  errno: 3780,
+  sqlState: 'HY000',
+  sqlMessage: "Referencing column 'postUserId' and referenced column 'userId' in foreign key constraint 'FK_82ca4e97022cff5e7f9360fe878' are incompatible.",
+  name: 'QueryFailedError',
+  query: 'ALTER TABLE `post_review` ADD CONSTRAINT `FK_82ca4e97022cff5e7f9360fe878` FOREIGN KEY (`postId`, `postUserId`) REFERENCES `post`(`id`,`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION',
+  parameters: [],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-05-17T20:17:38.122Z'
+}
+{
+  message: "Referencing column 'postUserId' and referenced column 'userId' in foreign key constraint 'FK_82ca4e97022cff5e7f9360fe878' are incompatible.",
+  code: undefined,
+  errno: 3780,
+  sqlState: 'HY000',
+  sqlMessage: "Referencing column 'postUserId' and referenced column 'userId' in foreign key constraint 'FK_82ca4e97022cff5e7f9360fe878' are incompatible.",
+  name: 'QueryFailedError',
+  query: 'ALTER TABLE `post_review` ADD CONSTRAINT `FK_82ca4e97022cff5e7f9360fe878` FOREIGN KEY (`postId`, `postUserId`) REFERENCES `post`(`id`,`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION',
+  parameters: [],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-05-17T20:33:27.519Z'
+}
+{
+  level: 'error',
+  message: DataTypeNotSupportedError: Data type "float4" in "Order.shippingAmount" is not supported by "mysql" database.
+      at new DataTypeNotSupportedError (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\error\DataTypeNotSupportedError.js:7:28)
+      at C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\metadata-builder\EntityMetadataValidator.js:77:27
+      at Array.forEach (<anonymous>)
+      at EntityMetadataValidator.validate (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\metadata-builder\EntityMetadataValidator.js:74:36)
+      at C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\metadata-builder\EntityMetadataValidator.js:42:74
+      at Array.forEach (<anonymous>)
+      at EntityMetadataValidator.validateMany (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\metadata-builder\EntityMetadataValidator.js:42:25)
+      at Connection.buildMetadatas (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\connection\Connection.js:521:33)
+      at Connection.<anonymous> (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\connection\Connection.js:127:30)
+      at step (C:\Users\casper-adams\Desktop\liredit\server\node_modules\tslib\tslib.js:141:27),
+  label: 'logs',
+  timestamp: '2021-05-18T09:53:24.677Z'
+}
+{
+  level: 'error',
+  message: QueryFailedError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Tue May 18 2021 12:54:42 GMT+0300 (East Africa Time), `updatedAt` datetime(6) NO' at line 1
+      at new QueryFailedError (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\error\QueryFailedError.js:11:28)
+      at Query.onResult (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\driver\mysql\MysqlQueryRunner.js:216:45)
+      at Query.execute (C:\Users\casper-adams\Desktop\liredit\server\node_modules\mysql2\lib\commands\command.js:30:14)
+      at PoolConnection.handlePacket (C:\Users\casper-adams\Desktop\liredit\server\node_modules\mysql2\lib\connection.js:425:32)
+      at PacketParser.onPacket (C:\Users\casper-adams\Desktop\liredit\server\node_modules\mysql2\lib\connection.js:75:12)
+      at PacketParser.executeStart (C:\Users\casper-adams\Desktop\liredit\server\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (C:\Users\casper-adams\Desktop\liredit\server\node_modules\mysql2\lib\connection.js:82:25)
+      at Socket.emit (node:events:369:20)
+      at addChunk (node:internal/streams/readable:313:12)
+      at readableAddChunk (node:internal/streams/readable:288:9) {
+    code: 'ER_PARSE_ERROR',
+    errno: 1064,
+    sqlState: '42000',
+    sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Tue May 18 2021 12:54:42 GMT+0300 (East Africa Time), `updatedAt` datetime(6) NO' at line 1",
+    query: 'CREATE TABLE `product` (`id` bigint NOT NULL AUTO_INCREMENT, `categoryId` int NOT NULL, `title` varchar(255) NOT NULL, `stock` int NOT NULL, `price` double NOT NULL, `discount` double NULL DEFAULT NULL, `discountExpiration` date NULL DEFAULT NULL, `description` text NOT NULL, `images` text NULL DEFAULT NULL, `tags` varchar(255) NULL DEFAULT NULL, `featured` tinyint NOT NULL DEFAULT 0, `published` tinyint NOT NULL DEFAULT 1, `createdAt` datetime(6) NOT NULL DEFAULT Tue May 18 2021 12:54:42 GMT+0300 (East Africa Time), `updatedAt` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6), `userId` bigint NULL, PRIMARY KEY (`id`, `categoryId`)) ENGINE=InnoDB',
+    parameters: []
+  },
+  label: 'logs',
+  timestamp: '2021-05-18T09:54:47.389Z'
+}
+{
+  level: 'error',
+  message: Error: Relation ProductReview#product and Product#reviews both has cascade remove set. This may lead to unexpected circular removals. Please set cascade remove only from one side of relationship.
+      at C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\metadata-builder\EntityMetadataValidator.js:170:23
+      at Array.forEach (<anonymous>)
+      at EntityMetadataValidator.validate (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\metadata-builder\EntityMetadataValidator.js:167:34)
+      at C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\metadata-builder\EntityMetadataValidator.js:42:74
+      at Array.forEach (<anonymous>)
+      at EntityMetadataValidator.validateMany (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\metadata-builder\EntityMetadataValidator.js:42:25)
+      at Connection.buildMetadatas (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\connection\Connection.js:521:33)
+      at Connection.<anonymous> (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\connection\Connection.js:127:30)
+      at step (C:\Users\casper-adams\Desktop\liredit\server\node_modules\tslib\tslib.js:141:27)
+      at Object.next (C:\Users\casper-adams\Desktop\liredit\server\node_modules\tslib\tslib.js:122:57),
+  label: 'logs',
+  timestamp: '2021-05-18T10:22:57.833Z'
+}
+{
+  level: 'error',
+  message: CannotDetermineGraphQLTypeError: Cannot determine GraphQL output type for 'category' of 'Product' class. Is the value, that is used as its TS type or explicit type, decorated with a proper decorator or is it a proper output value?
+      at Function.getGraphQLOutputType (C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:519:19)
+      at C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:175:47
+      at Array.reduce (<anonymous>)
+      at fields (C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:166:53)
+      at resolveThunk (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:480:40)
+      at defineFieldMap (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:692:18)
+      at GraphQLObjectType.getFields (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:633:27)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:366:81)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:368:9)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:368:9),
+  label: 'logs',
+  timestamp: '2021-05-18T12:03:22.185Z'
+}
+{
+  level: 'error',
+  message: QueryFailedError: All parts of a PRIMARY KEY must be NOT NULL; if you need NULL in a key, use UNIQUE instead
+      at new QueryFailedError (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\error\QueryFailedError.js:11:28)
+      at Query.onResult (C:\Users\casper-adams\Desktop\liredit\server\node_modules\typeorm\driver\mysql\MysqlQueryRunner.js:216:45)
+      at Query.execute (C:\Users\casper-adams\Desktop\liredit\server\node_modules\mysql2\lib\commands\command.js:30:14)
+      at PoolConnection.handlePacket (C:\Users\casper-adams\Desktop\liredit\server\node_modules\mysql2\lib\connection.js:425:32)
+      at PacketParser.onPacket (C:\Users\casper-adams\Desktop\liredit\server\node_modules\mysql2\lib\connection.js:75:12)
+      at PacketParser.executeStart (C:\Users\casper-adams\Desktop\liredit\server\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (C:\Users\casper-adams\Desktop\liredit\server\node_modules\mysql2\lib\connection.js:82:25)
+      at Socket.emit (node:events:369:20)
+      at addChunk (node:internal/streams/readable:313:12)
+      at readableAddChunk (node:internal/streams/readable:288:9) {
+    code: 'ER_PRIMARY_CANT_HAVE_NULL',
+    errno: 1171,
+    sqlState: '42000',
+    sqlMessage: 'All parts of a PRIMARY KEY must be NOT NULL; if you need NULL in a key, use UNIQUE instead',
+    query: 'ALTER TABLE `product` CHANGE `categoryId` `categoryId` int NULL',
+    parameters: []
+  },
+  label: 'logs',
+  timestamp: '2021-05-18T12:51:36.009Z'
+}
+{
+  level: 'error',
+  message: CannotDetermineGraphQLTypeError: Cannot determine GraphQL output type for 'reviews' of 'Product' class. Is the value, that is used as its TS type or explicit type, decorated with a proper decorator or is it a proper output value?
+      at Function.getGraphQLOutputType (C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:519:19)
+      at C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:175:47
+      at Array.reduce (<anonymous>)
+      at fields (C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:166:53)
+      at resolveThunk (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:480:40)
+      at defineFieldMap (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:692:18)
+      at GraphQLObjectType.getFields (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:633:27)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:366:81)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:368:9)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:368:9),
+  label: 'logs',
+  timestamp: '2021-05-18T12:54:13.803Z'
+}
+{
+  level: 'error',
+  message: CannotDetermineGraphQLTypeError: Cannot determine GraphQL output type for 'cart' of 'User' class. Is the value, that is used as its TS type or explicit type, decorated with a proper decorator or is it a proper output value?
+      at Function.getGraphQLOutputType (C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:519:19)
+      at C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:175:47
+      at Array.reduce (<anonymous>)
+      at fields (C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:166:53)
+      at resolveThunk (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:480:40)
+      at defineFieldMap (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:692:18)
+      at GraphQLObjectType.getFields (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:633:27)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:366:81)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:368:9)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:368:9),
+  label: 'logs',
+  timestamp: '2021-05-18T13:04:57.653Z'
+}
+{
+  level: 'error',
+  message: CannotDetermineGraphQLTypeError: Cannot determine GraphQL output type for 'cartItems' of 'Cart' class. Is the value, that is used as its TS type or explicit type, decorated with a proper decorator or is it a proper output value?
+      at Function.getGraphQLOutputType (C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:519:19)
+      at C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:175:47
+      at Array.reduce (<anonymous>)
+      at fields (C:\Users\casper-adams\Desktop\liredit\server\node_modules\type-graphql\dist\schema\schema-generator.js:166:53)
+      at resolveThunk (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:480:40)
+      at defineFieldMap (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:692:18)
+      at GraphQLObjectType.getFields (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\definition.js:633:27)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:366:81)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:368:9)
+      at collectReferencedTypes (C:\Users\casper-adams\Desktop\liredit\server\node_modules\graphql\type\schema.js:368:9),
+  label: 'logs',
+  timestamp: '2021-05-18T13:06:04.569Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:07:18.881Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:10:43.976Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:13:20.310Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:15:23.073Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:16:41.113Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:17:56.283Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:21:49.329Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:21:58.787Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:21:59.936Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:32:03.763Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:32:20.005Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:34:03.806Z'
+}
+{
+  level: 'error',
+  message: "Cannot set property 'userId' of undefined Cannot set property 'userId' of undefined",
+  stack: "TypeError: Cannot set property 'userId' of undefined\n" +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\build\\resolvers\\user.js:141:36\n' +
+    '    at tryCatcher (C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\utils.js:12:23)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\liredit\\server\\node_modules\\standard-as-callback\\built\\index.js:22:53\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-18T21:34:35.029Z'
+}

@@ -1,0 +1,157 @@
+.navbar {
+  background: $grey-color;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+
+  & .content {
+    display: flex;
+    justify-content: space-between;
+    height: 72px;
+    align-items: center;
+
+    & .logo {
+      color: $main;
+    }
+
+    & .list {
+      display: flex;
+      height: 100%;
+      align-items: center;
+
+      &__item {
+        &:not(:last-child) {
+          margin-right: 1.6rem;
+        }
+      }
+    }
+  }
+}
+
+.header {
+  &__top {
+    background: $grey-color;
+    height: 45px;
+    position: relative;
+
+    & .css-4m7w5b {
+      height: 100%;
+    }
+
+    &__content {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & div:last-child {
+        height: 100%;
+
+        & ul {
+          display: flex;
+          height: 100%;
+          align-items: center;
+
+          & li {
+            cursor: pointer;
+
+            &:not(:last-child) {
+              margin-right: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__middle {
+    padding: 20px 0;
+    & .content {
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & .logo {
+        font-size: 30px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $main;
+        cursor: pointer;
+
+        & i {
+          color: $dark;
+        }
+      }
+
+      & .search {
+        min-width: 320px;
+        width: 450px;
+        height: 60%;
+        position: relative;
+        &__input {
+          border-radius: 200px;
+          padding: 0 2em;
+          background: $grey-color;
+          width: 100%;
+          height: 100%;
+        }
+
+        &__icon {
+          background: $main;
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          right: 0;
+          height: 100%;
+          padding: 0 24px;
+          border-radius: 0 200px 200px 0;
+          color: $white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          & i {
+            font-size: 24px;
+            font-weight: 700;
+          }
+        }
+      }
+
+      & .cart__sec {
+        background: $main;
+        color: $white;
+        width: 55px;
+        height: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 200px;
+        cursor: pointer;
+        position: relative;
+
+        & i {
+          font-size: 32px;
+        }
+
+        & sup {
+          position: absolute;
+          top: -15px;
+          right: -10px;
+          width: 35px;
+          height: 35px;
+          background: $yellow;
+          border-radius: 200px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $dark;
+          font-weight: 700;
+        }
+      }
+    }
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}

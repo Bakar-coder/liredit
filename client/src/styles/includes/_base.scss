@@ -1,0 +1,28 @@
+@import "./variables";
+
+*,
+*::after,
+*::before {
+  outline: none;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  background: $grey-bg;
+  color: $grey-text;
+  font-weight: 300;
+
+  h1 {
+    color: $main-blue;
+  }
+
+  h2,
+  h3 {
+    color: rgba($main-blue, 0.6);
+  }
+
+  & ul {
+    list-style: none;
+  }
+}
