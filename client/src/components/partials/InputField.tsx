@@ -31,15 +31,9 @@ const InputField: FC<InputFieldTypes> = (props) => {
             ? "email"
             : "text"
         }
-        required={props.required}
       />
       {(field.name === "description" || field.name === "details") && (
-        <Textarea
-          {...field}
-          id={props.id}
-          placeholder={props.placeholder}
-          required={props.required}
-        />
+        <Textarea {...field} id={props.id} placeholder={props.placeholder} />
       )}
       {error && <FormErrorMessage>{error}</FormErrorMessage>}
     </FormControl>
