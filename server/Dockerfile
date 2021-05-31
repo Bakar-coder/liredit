@@ -1,6 +1,6 @@
 FROM node:15.14.0-alpine
 WORKDIR /usr/app/server
-COPY package.json yarn.lock ./
+COPY package.json ./
 COPY . .
 RUN yarn install
 COPY .env.production .env
