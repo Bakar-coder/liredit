@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  webserver:
-    image: webserver
-    container_name: webserver
+  nginx:
+    build:
+      context: ./nginx
     restart: unless-stopped
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d
@@ -11,23 +11,23 @@ services:
       - "80:80"
 
   nextjs:
-    image: nextjs
-    container_name: nextjs
+    build:
+      context: ./client
     restart: unless-stopped
     ports:
       - 3000:3000
 
   server:
-    image: server
+    build:
+      context: ./server
     restart: unless-stopped
-    container_name: server
     ports:
       - 8080:8080
 
   postgres:
     image: postgres:13.2-alpine
     restart: unless-stopped
-    container_name: postres_database
+    container_name: database
     environment:
       - POSTGRES_PASSWORD=password
     volumes:
@@ -37,7 +37,7 @@ services:
 
   redis:
     image: redis:6.2.1-alpine
-    container_name: redis_database
+    container_name: redis_db
     restart: unless-stopped
     ports:
       - 6379:6379

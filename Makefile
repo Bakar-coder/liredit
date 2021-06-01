@@ -1,6 +1,5 @@
 build-app:
-	cd ./nginx && ${MAKE} build  && \
-	cd ../client && ${MAKE} build && \
+	cd ./client && ${MAKE} build && \
 	cd ../server && ${MAKE} build
 
 run-prod:
