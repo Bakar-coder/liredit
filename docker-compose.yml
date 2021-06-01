@@ -3,6 +3,7 @@ version: "3.9"
 services:
   webserver:
     image: webserver
+    container_name: webserver
     restart: unless-stopped
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d
