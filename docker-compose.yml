@@ -12,8 +12,8 @@ services:
         - ./nginx/nginx.conf:/etc/nginx/conf.d
         - letsencrypt:/etc/letsencrypt
       ports:
-        - 80:80
-        - 443:443
+        - '80:80'
+        - '443:443'
 
   nextjs:
     build:
