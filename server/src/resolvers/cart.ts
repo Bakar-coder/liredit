@@ -1,9 +1,9 @@
-import { ctx } from "src/context";
-import { Cart } from "src/entities/Cart";
-import { CartItem } from "src/entities/CartItem";
-import { User } from "src/entities/User";
-import { UserResponseType } from "src/typeDefs/user";
-import { getCart } from "src/utils/getCart";
+import { ctx } from "../context";
+import { Cart } from "../entities/Cart";
+import { CartItem } from "../entities/CartItem";
+import { User } from "../entities/User";
+import { UserResponseType } from "../typeDefs/user";
+import { getCart } from "../utils/getCart";
 import { Arg, Ctx, Mutation, Int, Resolver, Query } from "type-graphql";
 
 import { getConnection } from "typeorm";
