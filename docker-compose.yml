@@ -2,28 +2,22 @@ version: "3.9"
 
 services:
   nginx:
-    build:
-      context: ./nginx
-      args:
-        - CERTBOT_EMAIL=ghettohustlers256@gmail.com #replace with your own email
-        - DOMAIN_LIST=ghettohustler.com,api.ghettohustler.com,www.ghettohustler.com #replace with your own domains
-      restart: always
-      volumes:
-        - ./nginx/nginx.conf:/etc/nginx/conf.d
-      ports:
-        - "80:80"
+    image: nginx-reverse-proxy
+    restart: always
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d
+    ports:
+      - "80:80"
 
   nextjs:
-    build:
-      context: ./client
+    image: nextjs
     container_name: nextjs
     restart: unless-stopped
     ports:
       - 3000:3000
 
   server:
-    build:
-      context: ./server
+    image: server
     restart: unless-stopped
     container_name: server
     ports:
