@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  nginx:
-    image: nginx-reverse-proxy
-    restart: always
+  webserver:
+    image: webserver
+    restart: unless-stopped
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d
     ports:

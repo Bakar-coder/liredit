@@ -1,2 +1,2 @@
 build:
-	docker build -t nginx-reverse-proxy:latest .
+	docker build -t webserver:latest .

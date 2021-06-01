@@ -1,10 +1,10 @@
 build-app:
-	cd nginx && ${MAKE} build  && \
+	cd ./nginx && ${MAKE} build  && \
 	cd ../client && ${MAKE} build && \
 	cd ../server && ${MAKE} build
 
-run-app:
-	docker compose up -d
+run-prod:
+	docker compose up -d --build
 	
-remove-app:
+remove-prod:
 	docker compose down -v --remove-orphans --rmi local && docker volume prune -f && docker network prune -f
