@@ -1,2 +1,2 @@
 build:
-	docker build -t nextjs:latest .
+	docker build -t web_client:latest .

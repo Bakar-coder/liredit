@@ -1,2 +1,2 @@
 build:
-	docker build -t server:latest .
+	docker build -t web_server:latest .
