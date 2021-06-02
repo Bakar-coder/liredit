@@ -48,7 +48,7 @@ const server = async () => {
     port: 6379, // Redis port
     host: DB_HOST, // Redis host
     family: 4, // 4 (IPv4) or 6 (IPv6)
-    password: "",
+    connectTimeout: 10000,
     db: 0,
   });
   const redisStore = connectRedis(session);
