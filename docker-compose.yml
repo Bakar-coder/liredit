@@ -5,6 +5,7 @@ services:
     build:
       context: ./server
     env_file: ./server/.env
+    container_name: server
     networks:
       - ghettohustler_network
     restart: unless-stopped
@@ -19,6 +20,7 @@ services:
 
   postgres:
     image: postgres:13.3-alpine
+    container_name: postgres
     ports:
       - 5432:5432
     restart: unless-stopped
@@ -29,6 +31,7 @@ services:
 
   redis:
     image: redis:6.2.4-alpine
+    container_name: redis
     networks:
       - ghettohustler_network
     ports:
@@ -39,6 +42,7 @@ services:
 networks:
   ghettohustler_network:
     driver: bridge
+    name: ghettohustler_network
 
 volumes:
   redis_data:
