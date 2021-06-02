@@ -47,7 +47,7 @@ const server = async () => {
   const redis = new Redis({
     port: 6379,
     host: DB_HOST,
-    connectTimeout: 30000,
+    connectTimeout: 10000,
   });
   const redisStore = connectRedis(session);
   const conn = await createConnection({
