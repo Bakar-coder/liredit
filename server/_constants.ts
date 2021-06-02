@@ -1,0 +1,16 @@
+import "dotenv-safe/config";
+export const __prod__ = process.env.NODE_ENV === "production";
+export const PORT = process.env.PORT;
+export const CORS_ORIGIN = process.env.CORS_ORIGIN;
+export const PRIVATE_KEY = process.env.PRIVATE_KEY;
+export const REDIS_URL = process.env.REDIS_URL;
+export const RESET_PASSWORD_PREFIX = process.env.RESET_PASSWORD_PREFIX;
+export const DB_NAME = process.env.DB_NAME;
+export const DB_PASSWORD = process.env.DB_PASSWORD;
+export const DB_TYPE = process.env.DB_TYPE;
+export const DB_HOST = process.env.DB_HOST;
+export const DB_PORT = process.env.DB_PORT;
+export const DB_USER = process.env.DB_USER;
+export const GOOGLE_CALLBACK_URL = process.env.GOOGLE_CALLBACK_URL;
+export const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+export const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
