@@ -17,6 +17,7 @@ import {
   DB_TYPE,
   PORT,
   PRIVATE_KEY,
+  REDIS_URL,
   __prod__,
 } from "./_constants";
 import { dbConfig } from "./db-config";
@@ -43,9 +44,7 @@ filePaths.map((filePath) =>
 
 const server = async () => {
   const app = express();
-  const redis = new Redis({
-    host: "redis://redis",
-  });
+  const redis = new Redis(REDIS_URL);
   const redisStore = connectRedis(session);
   const conn = await createConnection({
     ...dbConfig,
