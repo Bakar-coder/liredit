@@ -14,10 +14,10 @@ import { createConnection } from "typeorm";
 import { mkdir, readdir } from "fs";
 import {
   CORS_ORIGIN,
+  DB_HOST,
   DB_TYPE,
   PORT,
   PRIVATE_KEY,
-  REDIS_URL,
   __prod__,
 } from "./_constants";
 import { dbConfig } from "./db-config";
@@ -44,13 +44,23 @@ filePaths.map((filePath) =>
 
 const server = async () => {
   const app = express();
-  const redis = new Redis(REDIS_URL);
+  const redis = new Redis({
+    tls: {},
+    port: 6379,
+    host: DB_HOST,
+    password: "",
+    connectTimeout: 17000,
+    maxRetriesPerRequest: 4,
+    retryStrategy: (times) => Math.min(times * 30, 1000),
+  });
+
   const redisStore = connectRedis(session);
   const conn = await createConnection({
     ...dbConfig,
     entities: ["build/entities/*.js"],
     migrations: ["build/migrations/*.js"],
   });
+
   app
     .disable("x-powered-by")
     .set("trust proxy", 1)
