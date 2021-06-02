@@ -4,8 +4,7 @@ COPY package.json yarn.lock ./
 COPY . .
 COPY .env .env
 COPY .env.example .env.example
-RUN yarn install --frozen-lockfile
-RUN yarn add argon2
+RUN yarn install
 ENV NODE_ENV production
 RUN yarn build
 EXPOSE 8080
