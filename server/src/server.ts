@@ -14,7 +14,6 @@ import { createConnection } from "typeorm";
 import { mkdir, readdir } from "fs";
 import {
   CORS_ORIGIN,
-  DB_HOST,
   DB_TYPE,
   PORT,
   PRIVATE_KEY,
@@ -45,9 +44,7 @@ filePaths.map((filePath) =>
 
 const server = async () => {
   const app = express();
-  const redis = new Redis({
-    port: 6379,
-    host: DB_HOST,
+  const redis = new Redis(REDIS_URL, {
     db: 0,
     tls: {
       rejectUnauthorized: false,
