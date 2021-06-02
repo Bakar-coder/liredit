@@ -14,9 +14,6 @@ services:
     depends_on:
       - postgres
       - redis
-    volumes:
-      - ./server:/usr/app/server
-      - /usr/app/server/node-modules
 
   postgres:
     image: postgres:13.3-alpine
