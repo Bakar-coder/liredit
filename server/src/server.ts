@@ -45,9 +45,11 @@ filePaths.map((filePath) =>
 const server = async () => {
   const app = express();
   const redis = new Redis({
-    port: 6379,
-    host: DB_HOST,
-    enableAutoPipelining: true,
+    port: 6379, // Redis port
+    host: DB_HOST, // Redis host
+    family: 4, // 4 (IPv4) or 6 (IPv6)
+    password: "",
+    db: 0,
   });
   const redisStore = connectRedis(session);
   const conn = await createConnection({
