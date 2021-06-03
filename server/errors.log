@@ -76,3 +76,36 @@
   label: 'logs',
   timestamp: '2021-06-03T17:38:04.928Z'
 }
+{
+  level: 'error',
+  message: error: database "hustlers_db" does not exist
+      at Parser.parseErrorMessage (C:\Users\casper-adams\Desktop\liredit\server\node_modules\pg-protocol\dist\parser.js:287:98)
+      at Parser.handlePacket (C:\Users\casper-adams\Desktop\liredit\server\node_modules\pg-protocol\dist\parser.js:126:29)
+      at Parser.parse (C:\Users\casper-adams\Desktop\liredit\server\node_modules\pg-protocol\dist\parser.js:39:38)
+      at Socket.<anonymous> (C:\Users\casper-adams\Desktop\liredit\server\node_modules\pg-protocol\dist\index.js:11:42)
+      at Socket.emit (node:events:369:20)
+      at addChunk (node:internal/streams/readable:313:12)
+      at readableAddChunk (node:internal/streams/readable:288:9)
+      at Socket.Readable.push (node:internal/streams/readable:227:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+    length: 96,
+    severity: 'FATAL',
+    code: '3D000',
+    detail: undefined,
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'postinit.c',
+    line: '875',
+    routine: 'InitPostgres'
+  },
+  label: 'logs',
+  timestamp: '2021-06-03T22:41:23.760Z'
+}
