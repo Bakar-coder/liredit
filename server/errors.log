@@ -63,3 +63,16 @@
   label: 'logs',
   timestamp: '2021-05-26T10:38:49.877Z'
 }
+{
+  level: 'error',
+  message: Error: connect EHOSTUNREACH 143.198.167.112:5432
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1138:16) {
+    errno: -4073,
+    code: 'EHOSTUNREACH',
+    syscall: 'connect',
+    address: '143.198.167.112',
+    port: 5432
+  },
+  label: 'logs',
+  timestamp: '2021-06-03T17:38:04.928Z'
+}
