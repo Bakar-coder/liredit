@@ -11,11 +11,11 @@ import {
 import TextInputField from "../includes/TextField";
 import { isServer } from "../../utils/isServer";
 
-interface signinTypes {
-  productTitle: string;
-}
+interface signinTypes {}
 
-const EditProduct: FC<signinTypes> = ({ productTitle }) => {
+const EditProduct: FC<signinTypes> = ({}) => {
+  const { query } = useRouter();
+  const productTitle = query.title as string;
   const [error, setError] = useState(`` as any);
   const [{ data }] = useProductsQuery({ pause: isServer() });
   const products = data?.allProducts.products;
