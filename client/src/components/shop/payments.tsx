@@ -1,5 +1,8 @@
-import DropIn from "braintree-web-drop-in-react";
+import dynamic from "next/dynamic";
 import React, { FC, useState } from "react";
+const DropIn = dynamic(() => import("braintree-web-drop-in-react"), {
+  ssr: false,
+});
 import {
   usePaymentTokenQuery,
   useUserQuery,
