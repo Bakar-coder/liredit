@@ -5,6 +5,8 @@ services:
     build:
       context: ./nginx
     container_name: webserver
+    networks:
+      - ghettohustler_network
     ports:
       - 80:80
     restart: unless-stopped
