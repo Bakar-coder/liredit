@@ -7,7 +7,7 @@ import {
   useUserQuery,
 } from "../../../generated/graphql";
 import { isServer } from "../../../utils/isServer";
-import { STATIC_URL } from "../../../../_constants";
+import { STATIC_URL } from "../../../../_constant";
 
 interface productsTypes {}
 
