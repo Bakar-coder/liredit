@@ -2,7 +2,7 @@ FROM node:16.2.0-alpine
 WORKDIR /usr/app/server
 COPY package.json yarn.lock ./
 COPY . .
-RUN yarn install --frozen-lockfile
+RUN yarn install
 COPY .env.production .env
 ENV NODE_ENV production
 RUN yarn build
