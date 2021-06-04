@@ -1,6 +1,13 @@
 version: "3.8"
 
 services:
+  proxy:
+    build:
+      context: ./nginx
+    ports:
+      - 80:80
+    restart: always
+
   client:
     build:
       context: ./client
