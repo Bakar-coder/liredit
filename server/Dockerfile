@@ -3,7 +3,7 @@ WORKDIR /usr/app/server
 COPY package.json yarn.lock ./
 COPY . .
 RUN yarn install
-COPY .env.production .env
+COPY .env .env
 ENV NODE_ENV production
 RUN yarn build
 EXPOSE 8080
