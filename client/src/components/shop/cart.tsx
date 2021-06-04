@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { FC, useContext } from "react";
-import { STATIC_URL } from "../../../_constants";
+import { STATIC_URL } from "../../../_constant";
 import { authContext } from "../../context/auth/context";
 import {
   CartItemType,
