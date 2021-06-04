@@ -9,6 +9,10 @@
     "gen": "graphql-codegen --config graphql.yml",
     "gql-init": "yarn graphql-codegen init"
   },
+  "exports": {
+    "./": "./",
+    "./*": "./*"
+  },
   "dependencies": {
     "@apollo/client": "^3.3.11",
     "@urql/exchange-graphcache": "^3.0.2",
