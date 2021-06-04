@@ -10,19 +10,19 @@ services:
     networks:
       - ghettohustler_network
 
-  server:
-    build:
-      context: ./server
-    env_file: ./server/.env
-    container_name: server
-    networks:
-      - ghettohustler_network
-    restart: unless-stopped
-    ports:
-      - 8080:8080
-    depends_on:
-      - postgres
-      - redis
+  # server:
+  #   build:
+  #     context: ./server
+  #   env_file: ./server/.env
+  #   container_name: server
+  #   networks:
+  #     - ghettohustler_network
+  #   restart: unless-stopped
+  #   ports:
+  #     - 8080:8080
+  #   depends_on:
+  #     - postgres
+  #     - redis
 
   postgres:
     image: postgres:13.3-alpine
