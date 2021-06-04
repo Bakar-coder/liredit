@@ -1,4 +1,4 @@
-import { Field, GraphQLISODateTime, Int, ObjectType } from "type-graphql";
+import { ObjectType, Field } from "type-graphql";
 import {
   BaseEntity,
   Column,
@@ -6,19 +6,16 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
-  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-
 import { User } from "./User";
-import { PostReview } from "./PostReview";
 
 @ObjectType()
 @Entity()
 export class Post extends BaseEntity {
-  @Field(() => Int)
-  @PrimaryGeneratedColumn({ type: "bigint" })
+  @Field()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Field()
@@ -30,33 +27,26 @@ export class Post extends BaseEntity {
   description: string;
 
   @Field(() => String, { nullable: true })
-  @Column({ type: "text", default: null, nullable: true })
-  image: string;
+  @Column({ nullable: true })
+  image?: string;
 
-  @Field(() => String, { nullable: true })
-  @Column({ default: null, nullable: true })
-  tags: string;
-
-  @Field(() => Boolean, { nullable: true })
+  @Field()
   @Column({ default: false })
   featured: boolean;
 
-  @Field(() => Boolean, { nullable: true })
+  @Field()
   @Column({ default: true })
   published: boolean;
 
-  @Field(() => GraphQLISODateTime)
+  @Field()
   @CreateDateColumn()
   createdAt: Date;
 
-  @Field(() => GraphQLISODateTime)
+  @Field()
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => User, (u) => u.posts, { onDelete: "CASCADE" })
+  @ManyToOne(() => User, (u: User) => u.posts)
   @JoinColumn()
   user: User;
-
-  @OneToMany(() => PostReview, (item) => item.post)
-  reviews: PostReview[];
 }

@@ -1,36 +1,35 @@
 import "reflect-metadata";
+import "dotenv-safe/config";
 import express, { NextFunction } from "express";
 import { ApolloServer } from "apollo-server-express";
-import { buildSchema } from "type-graphql";
 import { graphqlUploadExpress } from "graphql-upload";
 import cors from "cors";
-import Redis from "ioredis";
-import connectRedis from "connect-redis";
-import { resolve } from "path";
-import session from "express-session";
-import helmet from "helmet";
-import compression from "compression";
-import { createConnection } from "typeorm";
-import { mkdir, readdir } from "fs";
-import {
-  CORS_ORIGIN,
-  DB_HOST,
-  DB_TYPE,
-  PORT,
-  PRIVATE_KEY,
-  __prod__,
-} from "./_constants";
+import { buildSchema } from "type-graphql";
 import { dbConfig } from "./db-config";
-import { UserResolver } from "./resolvers/user";
-import { PostResolver } from "./resolvers/post";
-import { userLoader } from "./utils/userLoader";
-import { ctx } from "./context";
-import { User } from "./entities/User";
+import { resolve } from "path";
+import { mkdir, readdir } from "fs";
+import session from "express-session";
+import connectRedis from "connect-redis";
+import helmet from "helmet";
+import Redis from "ioredis";
+import { CORS_ORIGIN, PRIVATE_KEY, REDIS_URL, __prod__ } from "./_constants";
+import { createConnection } from "typeorm";
 import { logger } from "./utils/logger";
+import { BraintreeResolver } from "./resolvers/braintree";
+import compression from "compression";
+import { appContext } from "./context";
+import { User } from "./entities/User";
+import { userLoader } from "./utils/userLoader";
+import { AdminProductResolver } from "./resolvers/admin/products";
+import { CartResolver } from "./resolvers/shop/cart";
+import { ProductResolver } from "./resolvers/shop/product";
+import { UserResolver } from "./resolvers/user";
 import { filePaths } from "./utils/paths";
-import { ProductResolver } from "./resolvers/product";
-import { CartResolver } from "./resolvers/cart";
-import { MediaResolver } from "./resolvers/media";
+
+const port = process.env.PORT || 8080;
+const app = express();
+const redis = new Redis(REDIS_URL);
+const redisStore = connectRedis(session);
 
 filePaths.map((filePath) =>
   readdir(
@@ -44,43 +43,35 @@ filePaths.map((filePath) =>
 );
 
 const server = async () => {
-  const app = express();
-  const redis = new Redis({
-    port: 6379,
-    host: DB_HOST,
-    connectTimeout: 10000,
-  });
-  const redisStore = connectRedis(session);
   const conn = await createConnection({
     ...dbConfig,
     entities: ["build/entities/*.js"],
     migrations: ["build/migrations/*.js"],
   });
+
   app
     .disable("x-powered-by")
     .set("trust proxy", 1)
-    .use(express.json())
     .use(express.urlencoded({ extended: false }))
-    .use("/static", express.static(resolve("static")))
+    .use("/media", express.static(resolve("media")))
     .use(cors({ credentials: true, origin: CORS_ORIGIN }))
     .use(graphqlUploadExpress({ maxFileSize: 100000000, maxFiles: 10 }))
     .use(
       session({
         name: "sid",
-        secret: PRIVATE_KEY as string,
+        secret: PRIVATE_KEY,
         resave: false,
         saveUninitialized: false,
         cookie: {
           sameSite: "lax",
           httpOnly: __prod__,
-          maxAge: 1000 * 60 * 60 * 24 * 3,
+          maxAge: 1000 * 60 * 60 * 24 * 7,
           secure: __prod__,
-          domain: __prod__ ? ".ghettohustler.com" : undefined,
         },
         store: new redisStore({ client: redis, disableTouch: true }),
       })
     )
-    .use(async (req: ctx["req"], _: any, next: NextFunction) => {
+    .use(async (req: appContext["req"], _: any, next: NextFunction) => {
       if (!req.session.userId) return next();
       const user = await User.findOne(req.session.userId, {
         relations: ["cart"],
@@ -101,29 +92,25 @@ const server = async () => {
 
   const apollo = new ApolloServer({
     uploads: false,
-    context: ({ req, res }) => ({ req, res }),
     schema: await buildSchema({
       validate: false,
       resolvers: [
-        CartResolver,
-        PostResolver,
-        ProductResolver,
         UserResolver,
-        MediaResolver,
+        CartResolver,
+        ProductResolver,
+        AdminProductResolver,
+        BraintreeResolver,
       ],
     }),
+    context: ({ req, res }) => ({ req, res, redis }),
   });
+
   apollo.applyMiddleware({ app, cors: false });
+  conn && logger.info("🚀 connected to postgresql database.");
+  conn && (await conn.runMigrations());
   conn &&
-    app.listen(PORT, () => {
-      conn && conn.runMigrations();
-      console.log(
-        "```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````"
-      );
-      conn && logger.info(`Connected to ${DB_TYPE} database;`);
-      logger.info(`server running on http://127.0.0.1:${PORT}`);
-    });
+    app.listen(port, () => logger.info(`🚀 server running on port :${port}`));
 };
 process.on("uncaughtException", (ex) => logger.error(ex.message, ex));
 process.on("unhandledRejection", (ex) => logger.error(ex));
-server().catch((err) => logger.error(err, err.message));
+server().catch((ex) => logger.error(ex.message, ex));

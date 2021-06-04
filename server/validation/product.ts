@@ -1,10 +1,7 @@
 import Joi from "joi";
-import {
-  CreateProductInputType,
-  UpdateProductInputType,
-} from "../typeDefs/product";
+import { AddProductInputType, updateProductInputType } from "types/product";
 
-export const validateProduct = (opts: CreateProductInputType) => {
+export const validateProduct = (opts: AddProductInputType) => {
   const {
     title,
     category,
@@ -23,8 +20,8 @@ export const validateProduct = (opts: CreateProductInputType) => {
     stock: Joi.number().required(),
     category: Joi.string().required(),
     price: Joi.number().required(),
-    discount: Joi.number(),
-    discountExpiration: Joi.date(),
+    discount: Joi.string(),
+    discountExpiration: Joi.string(),
     description: Joi.string().required(),
     images: Joi.array().required(),
     tags: Joi.any(),
@@ -45,7 +42,7 @@ export const validateProduct = (opts: CreateProductInputType) => {
   });
 };
 
-export const updateProductValidation = (opts: UpdateProductInputType) => {
+export const updateProductValidation = (opts: updateProductInputType) => {
   const {
     title,
     category,

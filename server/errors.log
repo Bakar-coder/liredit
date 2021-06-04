@@ -1,19 +1,186 @@
 {
+  details: [
+    GraphQLError [Object]: Type UserType must define one or more fields.
+        at SchemaValidationContext.reportError (C:\Users\casper-adams\Desktop\e-shop\graphql\server\node_modules\graphql\type\validate.js:86:19)
+        at validateFields (C:\Users\casper-adams\Desktop\e-shop\graphql\server\node_modules\graphql\type\validate.js:234:13)
+        at validateTypes (C:\Users\casper-adams\Desktop\e-shop\graphql\server\node_modules\graphql\type\validate.js:207:7)
+        at validateSchema (C:\Users\casper-adams\Desktop\e-shop\graphql\server\node_modules\graphql\type\validate.js:52:3)
+        at graphqlImpl (C:\Users\casper-adams\Desktop\e-shop\graphql\server\node_modules\graphql\graphql.js:79:62)
+        at C:\Users\casper-adams\Desktop\e-shop\graphql\server\node_modules\graphql\graphql.js:28:59
+        at new Promise (<anonymous>)
+        at Object.graphql (C:\Users\casper-adams\Desktop\e-shop\graphql\server\node_modules\graphql\graphql.js:26:10)
+        at Function.generateFromMetadata (C:\Users\casper-adams\Desktop\e-shop\graphql\server\node_modules\type-graphql\dist\schema\schema-generator.js:18:48)
+        at Object.buildSchema (C:\Users\casper-adams\Desktop\e-shop\graphql\server\node_modules\type-graphql\dist\utils\buildSchema.js:10:61)
+  ],
   level: 'error',
-  message: Error: connect ECONNREFUSED 127.0.0.1:5432
-      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1138:16) {
-    errno: -4078,
-    code: 'ECONNREFUSED',
-    syscall: 'connect',
-    address: '127.0.0.1',
-    port: 5432
-  },
+  message: 'Some errors occurred while generating GraphQL schema:\n' +
+    '  Type UserType must define one or more fields.\n' +
+    'Please check the `details` property of the error to get more detailed info. Some errors occurred while generating GraphQL schema:\n' +
+    '  Type UserType must define one or more fields.\n' +
+    'Please check the `details` property of the error to get more detailed info.',
+  stack: 'Error: Some errors occurred while generating GraphQL schema:\n' +
+    '  Type UserType must define one or more fields.\n' +
+    'Please check the `details` property of the error to get more detailed info.\n' +
+    '    at Function.generateFromMetadata (C:\\Users\\casper-adams\\Desktop\\e-shop\\graphql\\server\\node_modules\\type-graphql\\dist\\schema\\schema-generator.js:20:23)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n' +
+    '    at async Object.buildSchema (C:\\Users\\casper-adams\\Desktop\\e-shop\\graphql\\server\\node_modules\\type-graphql\\dist\\utils\\buildSchema.js:10:20)',
   label: 'logs',
-  timestamp: '2021-05-24T10:26:49.639Z'
+  timestamp: '2021-03-15T19:31:29.442Z'
 }
 {
-  message: 'relation "product_review" already exists',
-  length: 108,
+  message: 'relation "user" does not exist',
+  length: 164,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '442',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'd:\\pginstaller.auto\\postgres.windows-x64\\src\\backend\\parser\\parse_relation.c',
+  line: '1180',
+  routine: 'parserOpenTable',
+  query: 'SELECT "User"."id" AS "User_id", "User"."firstName" AS "User_firstName", "User"."lastName" AS "User_lastName", "User"."username" AS "User_username", "User"."email" AS "User_email", "User"."avatar" AS "User_avatar", "User"."password" AS "User_password", "User"."admin" AS "User_admin", "User"."seller" AS "User_seller", "User"."verified" AS "User_verified", "User"."createdAt" AS "User_createdAt", "User"."updatedAt" AS "User_updatedAt" FROM "user" "User" WHERE "User"."id" IN ($1)',
+  parameters: [ 1 ],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-03-19T21:33:21.363Z'
+}
+{
+  message: 'relation "user" does not exist',
+  length: 164,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '442',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'd:\\pginstaller.auto\\postgres.windows-x64\\src\\backend\\parser\\parse_relation.c',
+  line: '1180',
+  routine: 'parserOpenTable',
+  query: 'SELECT "User"."id" AS "User_id", "User"."firstName" AS "User_firstName", "User"."lastName" AS "User_lastName", "User"."username" AS "User_username", "User"."email" AS "User_email", "User"."avatar" AS "User_avatar", "User"."password" AS "User_password", "User"."admin" AS "User_admin", "User"."seller" AS "User_seller", "User"."verified" AS "User_verified", "User"."createdAt" AS "User_createdAt", "User"."updatedAt" AS "User_updatedAt" FROM "user" "User" WHERE "User"."id" IN ($1)',
+  parameters: [ 1 ],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-03-19T21:34:20.032Z'
+}
+{
+  message: 'relation "user" does not exist',
+  length: 164,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P01',
+  detail: undefined,
+  hint: undefined,
+  position: '442',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'd:\\pginstaller.auto\\postgres.windows-x64\\src\\backend\\parser\\parse_relation.c',
+  line: '1180',
+  routine: 'parserOpenTable',
+  query: 'SELECT "User"."id" AS "User_id", "User"."firstName" AS "User_firstName", "User"."lastName" AS "User_lastName", "User"."username" AS "User_username", "User"."email" AS "User_email", "User"."avatar" AS "User_avatar", "User"."password" AS "User_password", "User"."admin" AS "User_admin", "User"."seller" AS "User_seller", "User"."verified" AS "User_verified", "User"."createdAt" AS "User_createdAt", "User"."updatedAt" AS "User_updatedAt" FROM "user" "User" WHERE "User"."id" IN ($1)',
+  parameters: [ 1 ],
+  level: 'error',
+  label: 'logs',
+  timestamp: '2021-03-19T21:34:22.354Z'
+}
+{
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 5432,
+  level: 'error',
+  message: 'connect ECONNREFUSED 127.0.0.1:5432 connect ECONNREFUSED 127.0.0.1:5432',
+  stack: 'Error: connect ECONNREFUSED 127.0.0.1:5432\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)',
+  label: 'logs',
+  timestamp: '2021-04-10T20:19:12.477Z'
+}
+{
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 5432,
+  level: 'error',
+  message: 'connect ECONNREFUSED 127.0.0.1:5432 connect ECONNREFUSED 127.0.0.1:5432',
+  stack: 'Error: connect ECONNREFUSED 127.0.0.1:5432\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)',
+  label: 'logs',
+  timestamp: '2021-04-13T14:14:41.634Z'
+}
+{
+  length: 91,
+  name: 'error',
+  severity: 'FATAL',
+  code: '3D000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postinit.c',
+  line: '875',
+  routine: 'InitPostgres',
+  level: 'error',
+  message: 'database "shopDb" does not exist database "shopDb" does not exist',
+  stack: 'error: database "shopDb" does not exist\n' +
+    '    at Parser.parseErrorMessage (C:\\Users\\casper-adams\\Desktop\\apps\\graphql\\server\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n' +
+    '    at Parser.handlePacket (C:\\Users\\casper-adams\\Desktop\\apps\\graphql\\server\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n' +
+    '    at Parser.parse (C:\\Users\\casper-adams\\Desktop\\apps\\graphql\\server\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n' +
+    '    at Socket.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\graphql\\server\\node_modules\\pg-protocol\\dist\\index.js:10:42)\n' +
+    '    at Socket.emit (node:events:369:20)\n' +
+    '    at addChunk (node:internal/streams/readable:313:12)\n' +
+    '    at readableAddChunk (node:internal/streams/readable:288:9)\n' +
+    '    at Socket.Readable.push (node:internal/streams/readable:227:10)\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)',
+  label: 'logs',
+  timestamp: '2021-04-15T13:24:10.899Z'
+}
+{
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 5432,
+  level: 'error',
+  message: 'connect ECONNREFUSED 127.0.0.1:5432 connect ECONNREFUSED 127.0.0.1:5432',
+  stack: 'Error: connect ECONNREFUSED 127.0.0.1:5432\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1138:16)',
+  label: 'logs',
+  timestamp: '2021-04-28T23:24:50.495Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
   name: 'QueryFailedError',
   severity: 'ERROR',
   code: '42P07',
@@ -31,15 +198,22 @@
   file: 'heap.c',
   line: '1162',
   routine: 'heap_create_with_catalog',
-  query: 'CREATE TABLE "product_review" ("userId" bigint NOT NULL, "productId" bigint NOT NULL, "rating" double precision NOT NULL, "message" text NOT NULL, "productCategoryId" integer, "productUserId" integer, CONSTRAINT "PK_031e4b7765b46b636078cbb27b8" PRIMARY KEY ("userId", "productId"))',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
   parameters: [],
   level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
   label: 'logs',
-  timestamp: '2021-05-26T10:37:54.474Z'
+  timestamp: '2021-05-01T17:15:15.809Z'
 }
 {
-  message: 'relation "product_review" already exists',
-  length: 108,
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
   name: 'QueryFailedError',
   severity: 'ERROR',
   code: '42P07',
@@ -57,55 +231,796 @@
   file: 'heap.c',
   line: '1162',
   routine: 'heap_create_with_catalog',
-  query: 'CREATE TABLE "product_review" ("userId" bigint NOT NULL, "productId" bigint NOT NULL, "rating" double precision NOT NULL, "message" text NOT NULL, "productCategoryId" integer, "productUserId" integer, CONSTRAINT "PK_031e4b7765b46b636078cbb27b8" PRIMARY KEY ("userId", "productId"))',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
   parameters: [],
   level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
   label: 'logs',
-  timestamp: '2021-05-26T10:38:49.877Z'
+  timestamp: '2021-05-01T17:51:42.441Z'
 }
 {
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
   level: 'error',
-  message: Error: connect EHOSTUNREACH 143.198.167.112:5432
-      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1138:16) {
-    errno: -4073,
-    code: 'EHOSTUNREACH',
-    syscall: 'connect',
-    address: '143.198.167.112',
-    port: 5432
-  },
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
   label: 'logs',
-  timestamp: '2021-06-03T17:38:04.928Z'
+  timestamp: '2021-05-01T17:54:30.254Z'
 }
 {
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
   level: 'error',
-  message: error: database "hustlers_db" does not exist
-      at Parser.parseErrorMessage (C:\Users\casper-adams\Desktop\liredit\server\node_modules\pg-protocol\dist\parser.js:287:98)
-      at Parser.handlePacket (C:\Users\casper-adams\Desktop\liredit\server\node_modules\pg-protocol\dist\parser.js:126:29)
-      at Parser.parse (C:\Users\casper-adams\Desktop\liredit\server\node_modules\pg-protocol\dist\parser.js:39:38)
-      at Socket.<anonymous> (C:\Users\casper-adams\Desktop\liredit\server\node_modules\pg-protocol\dist\index.js:11:42)
-      at Socket.emit (node:events:369:20)
-      at addChunk (node:internal/streams/readable:313:12)
-      at readableAddChunk (node:internal/streams/readable:288:9)
-      at Socket.Readable.push (node:internal/streams/readable:227:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 96,
-    severity: 'FATAL',
-    code: '3D000',
-    detail: undefined,
-    hint: undefined,
-    position: undefined,
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'postinit.c',
-    line: '875',
-    routine: 'InitPostgres'
-  },
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
   label: 'logs',
-  timestamp: '2021-06-03T22:41:23.760Z'
+  timestamp: '2021-05-01T17:55:59.697Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-02T08:51:51.917Z'
+}
+{
+  length: 91,
+  name: 'error',
+  severity: 'FATAL',
+  code: '3D000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postinit.c',
+  line: '875',
+  routine: 'InitPostgres',
+  level: 'error',
+  message: 'database "shopdb" does not exist database "shopdb" does not exist',
+  stack: 'error: database "shopdb" does not exist\n' +
+    '    at Parser.parseErrorMessage (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg-protocol\\dist\\parser.js:278:15)\n' +
+    '    at Parser.handlePacket (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n' +
+    '    at Parser.parse (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n' +
+    '    at Socket.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg-protocol\\dist\\index.js:10:42)\n' +
+    '    at Socket.emit (node:events:369:20)\n' +
+    '    at addChunk (node:internal/streams/readable:313:12)\n' +
+    '    at readableAddChunk (node:internal/streams/readable:288:9)\n' +
+    '    at Socket.Readable.push (node:internal/streams/readable:227:10)\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)',
+  label: 'logs',
+  timestamp: '2021-05-02T08:57:17.066Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-02T08:59:52.012Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-02T09:00:58.746Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-02T09:01:33.048Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-02T09:08:39.625Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-02T09:10:26.417Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-02T09:12:13.165Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-02T10:05:02.810Z'
+}
+{
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8080,
+  level: 'error',
+  message: 'listen EADDRINUSE: address already in use :::8080 listen EADDRINUSE: address already in use :::8080',
+  stack: 'Error: listen EADDRINUSE: address already in use :::8080\n' +
+    '    at Server.setupListenHandle [as _listen2] (node:net:1311:16)\n' +
+    '    at listenInCluster (node:net:1359:12)\n' +
+    '    at Server.listen (node:net:1446:7)\n' +
+    '    at Function.listen (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\express\\lib\\application.js:618:24)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\build\\server.js:99:13\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at fulfilled (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\build\\server.js:5:58)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-02T10:06:40.071Z'
+}
+{
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 5432,
+  level: 'error',
+  message: 'connect ECONNREFUSED 127.0.0.1:5432 connect ECONNREFUSED 127.0.0.1:5432',
+  stack: 'Error: connect ECONNREFUSED 127.0.0.1:5432\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1138:16)',
+  label: 'logs',
+  timestamp: '2021-05-02T20:29:49.802Z'
+}
+{
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 5432,
+  level: 'error',
+  message: 'connect ECONNREFUSED 127.0.0.1:5432 connect ECONNREFUSED 127.0.0.1:5432',
+  stack: 'Error: connect ECONNREFUSED 127.0.0.1:5432\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1138:16)',
+  label: 'logs',
+  timestamp: '2021-05-03T16:53:17.758Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-03T17:05:45.927Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-03T17:10:02.572Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-03T17:10:30.288Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-03T17:11:34.106Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-03T17:12:02.605Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:12:28)\n' +
+    '    at PostgresQueryRunner.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:248:31)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)\n' +
+    '    at Object.throw (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:124:57)\n' +
+    '    at rejected (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:115:69)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:94:5)',
+  label: 'logs',
+  timestamp: '2021-05-03T17:12:16.765Z'
+}
+{
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'unlink',
+  path: 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg',
+  level: 'error',
+  message: "ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg' ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg'",
+  stack: "Error: ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg'",
+  label: 'logs',
+  timestamp: '2021-05-03T19:40:11.437Z'
+}
+{
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'unlink',
+  path: 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg',
+  level: 'error',
+  message: "ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg' ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg'",
+  stack: "Error: ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg'",
+  label: 'logs',
+  timestamp: '2021-05-03T19:40:43.534Z'
+}
+{
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'unlink',
+  path: 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg',
+  level: 'error',
+  message: "ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg' ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg'",
+  stack: "Error: ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg'",
+  label: 'logs',
+  timestamp: '2021-05-03T19:41:18.184Z'
+}
+{
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'unlink',
+  path: 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg',
+  level: 'error',
+  message: "ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg' ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg'",
+  stack: "Error: ENOENT: no such file or directory, unlink 'C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\media\\images\\8861d854a3ee851eb1a364bc_item-4.jpg'",
+  label: 'logs',
+  timestamp: '2021-05-03T19:41:31.461Z'
+}
+{
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 5432,
+  level: 'error',
+  message: 'connect ECONNREFUSED 127.0.0.1:5432 connect ECONNREFUSED 127.0.0.1:5432',
+  stack: 'Error: connect ECONNREFUSED 127.0.0.1:5432\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1138:16)',
+  label: 'logs',
+  timestamp: '2021-05-04T14:04:59.433Z'
+}
+{
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 5432,
+  level: 'error',
+  message: 'connect ECONNREFUSED 127.0.0.1:5432 connect ECONNREFUSED 127.0.0.1:5432',
+  stack: 'Error: connect ECONNREFUSED 127.0.0.1:5432\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1138:16)',
+  label: 'logs',
+  timestamp: '2021-05-05T09:32:51.150Z'
+}
+{
+  name: 'DataTypeNotSupportedError',
+  message: 'Data type "Object" in "Product.discountExpiration" is not supported by "postgres" database. Data type "Object" in "Product.discountExpiration" is not supported by "postgres" database.',
+  level: 'error',
+  stack: 'DataTypeNotSupportedError: Data type "Object" in "Product.discountExpiration" is not supported by "postgres" database.\n' +
+    '    at new DataTypeNotSupportedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\DataTypeNotSupportedError.js:8:28)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\metadata-builder\\EntityMetadataValidator.js:78:27\n' +
+    '    at Array.forEach (<anonymous>)\n' +
+    '    at EntityMetadataValidator.validate (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\metadata-builder\\EntityMetadataValidator.js:75:36)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\metadata-builder\\EntityMetadataValidator.js:43:74\n' +
+    '    at Array.forEach (<anonymous>)\n' +
+    '    at EntityMetadataValidator.validateMany (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\metadata-builder\\EntityMetadataValidator.js:43:25)\n' +
+    '    at Connection.buildMetadatas (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\connection\\Connection.js:522:33)\n' +
+    '    at Connection.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\connection\\Connection.js:128:30)\n' +
+    '    at step (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\node_modules\\tslib\\tslib.js:143:27)',
+  label: 'logs',
+  timestamp: '2021-05-05T10:25:43.189Z'
+}
+{
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 5432,
+  level: 'error',
+  message: 'connect ECONNREFUSED 127.0.0.1:5432 connect ECONNREFUSED 127.0.0.1:5432',
+  stack: 'Error: connect ECONNREFUSED 127.0.0.1:5432\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1138:16)',
+  label: 'logs',
+  timestamp: '2021-05-10T13:17:46.537Z'
+}
+{
+  message: 'relation "cart_item" already exists relation "cart_item" already exists',
+  length: 103,
+  name: 'QueryFailedError',
+  severity: 'ERROR',
+  code: '42P07',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'heap.c',
+  line: '1162',
+  routine: 'heap_create_with_catalog',
+  query: 'CREATE TABLE "cart_item" ("cartId" integer NOT NULL, "productId" integer NOT NULL, "quantity" integer NOT NULL, CONSTRAINT "PK_86ecfe066ef04fcf69bdbae722b" PRIMARY KEY ("cartId", "productId"))',
+  parameters: [],
+  level: 'error',
+  stack: 'QueryFailedError: relation "cart_item" already exists\n' +
+    '    at new QueryFailedError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\error\\QueryFailedError.js:11:28)\n' +
+    '    at Query.callback (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\typeorm\\driver\\postgres\\PostgresQueryRunner.js:235:38)\n' +
+    '    at Query.handleError (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg\\lib\\query.js:128:19)\n' +
+    '    at Client._handleErrorMessage (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg\\lib\\client.js:335:17)\n' +
+    '    at Connection.emit (node:events:369:20)\n' +
+    '    at C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg\\lib\\connection.js:114:12\n' +
+    '    at Parser.parse (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg-protocol\\dist\\parser.js:40:17)\n' +
+    '    at Socket.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg-protocol\\dist\\index.js:11:42)\n' +
+    '    at Socket.emit (node:events:369:20)\n' +
+    '    at addChunk (node:internal/streams/readable:313:12)',
+  label: 'logs',
+  timestamp: '2021-05-10T14:23:31.497Z'
+}
+{
+  length: 91,
+  name: 'error',
+  severity: 'FATAL',
+  code: '3D000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postinit.c',
+  line: '875',
+  routine: 'InitPostgres',
+  level: 'error',
+  message: 'database "shopdb" does not exist database "shopdb" does not exist',
+  stack: 'error: database "shopdb" does not exist\n' +
+    '    at Parser.parseErrorMessage (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg-protocol\\dist\\parser.js:287:98)\n' +
+    '    at Parser.handlePacket (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg-protocol\\dist\\parser.js:126:29)\n' +
+    '    at Parser.parse (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg-protocol\\dist\\parser.js:39:38)\n' +
+    '    at Socket.<anonymous> (C:\\Users\\casper-adams\\Desktop\\apps\\Shopplify\\server\\node_modules\\pg-protocol\\dist\\index.js:11:42)\n' +
+    '    at Socket.emit (node:events:369:20)\n' +
+    '    at addChunk (node:internal/streams/readable:313:12)\n' +
+    '    at readableAddChunk (node:internal/streams/readable:288:9)\n' +
+    '    at Socket.Readable.push (node:internal/streams/readable:227:10)\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)',
+  label: 'logs',
+  timestamp: '2021-06-03T23:24:54.608Z'
 }

@@ -1,4 +1,3 @@
-import { Field, Int, ObjectType } from "type-graphql";
 import {
   BaseEntity,
   Column,
@@ -10,7 +9,6 @@ import {
 import { Cart } from "./Cart";
 import { Product } from "./Product";
 
-@ObjectType()
 @Entity()
 export class CartItem extends BaseEntity {
   @PrimaryColumn()
@@ -19,16 +17,14 @@ export class CartItem extends BaseEntity {
   @PrimaryColumn()
   productId: number;
 
-  @Field(() => Int)
   @Column()
   quantity: number;
 
-  @ManyToOne(() => Cart, (cart) => cart.cartItems, { onDelete: "CASCADE" })
+  @ManyToOne(() => Cart, (cart) => cart.cartItems)
   @JoinColumn()
   cart: Cart;
 
-  @Field(() => Product)
-  @ManyToOne(() => Product, (prod) => prod.cartItems, { onDelete: "CASCADE" })
+  @ManyToOne(() => Product, (prod) => prod.cartItems)
   @JoinColumn()
   product: Product;
 }

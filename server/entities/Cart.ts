@@ -1,30 +1,27 @@
 import {
   BaseEntity,
+  Column,
   Entity,
   JoinColumn,
   OneToMany,
   OneToOne,
-  PrimaryColumn,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { User } from "./User";
 import { CartItem } from "./CartItem";
-import { Field, ObjectType } from "type-graphql";
 
-@ObjectType()
 @Entity()
 export class Cart extends BaseEntity {
-  @PrimaryGeneratedColumn({ type: "bigint" })
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @PrimaryColumn({ type: "bigint" })
+  @Column({ type: "int4" })
   userId: number;
 
-  @OneToOne(() => User, (user) => user.cart, { onDelete: "CASCADE" })
+  @OneToOne(() => User, (user) => user.cart)
   @JoinColumn()
   user: User;
 
-  @Field(() => [CartItem], { nullable: true })
   @OneToMany(() => CartItem, (item) => item.cart)
   cartItems: CartItem[];
 }

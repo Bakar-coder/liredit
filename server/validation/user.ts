@@ -1,6 +1,6 @@
-import Joi from "joi";
-import passwordComplexity from "joi-password-complexity";
-import { UserRegisterInputType } from "../typeDefs/user";
+import Joi from 'joi';
+import passwordComplexity from 'joi-password-complexity';
+import { UserRegisterInputType } from '../types/user';
 
 const complexityOptions = {
   min: 8,
@@ -12,7 +12,7 @@ const complexityOptions = {
 };
 
 export const validatePassword = (pass: string) =>
-  passwordComplexity(complexityOptions, "Password").validate(pass);
+  passwordComplexity(complexityOptions, 'Password').validate(pass);
 export const validateRegister = (opts: UserRegisterInputType) => {
   return Joi.object({
     firstName: Joi.string().required(),

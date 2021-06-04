@@ -1,15 +1,16 @@
 declare namespace NodeJS {
   export interface ProcessEnv {
-    PORT: string;
-    REDIS_URL: string;
     CORS_ORIGIN: string;
-    PRIVATE_KEY: string;
-    DB_NAME: string;
     DB_TYPE: string;
-    DB_PASSWORD: string;
-    DB_USER: string;
     DB_HOST: string;
     DB_PORT: string;
+    DB_USER: string;
+    DB_PASSWORD: string;
+    DB_NAME: string;
+    PORT: string;
+    PRIVATE_KEY: string;
+    REDIS_URL: string;
+    APP_DOMAIN: string;
     BRAINTREE_MERCHANT_ID: string;
     BRAINTREE_PUBLIC_KEY: string;
     BRAINTREE_PRIVATE_KEY: string;

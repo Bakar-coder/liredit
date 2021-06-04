@@ -1,38 +1,52 @@
-import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
-import argon from "argon2";
-import gravatar from "gravatar";
-import { validateRegister, validatePassword } from "../validation/user";
-import {
-  UserRegisterInputType,
-  LoginUserInputType,
-  UserResponseType,
-} from "../typeDefs/user";
-import { ctx } from "../context";
-import { Cart } from "../entities/Cart";
-import { User } from "../entities/User";
-import { getCart } from "../utils/getCart";
+import { validatePassword, validateRegister } from "../validation/user";
 import { getConnection } from "typeorm";
 import { v4 } from "uuid";
+import { Cart } from "../entities/Cart";
+import { getCart } from "../utils/getCart";
+import argon from "argon2";
+import gravatar from "gravatar";
+import { User } from "../entities/User";
 import { CORS_ORIGIN, RESET_PASSWORD_PREFIX } from "../_constants";
+import {
+  Arg,
+  Ctx,
+  Mutation,
+  Query,
+  Resolver,
+  UseMiddleware,
+} from "type-graphql";
+import { appContext } from "../context";
+import { UserType, UserRegisterInputType } from "../types/user";
 import sendMail from "../utils/sendMail";
+import { isAdmin } from "../middleware/auth";
 
 @Resolver()
 export class UserResolver {
-  @Query(() => UserResponseType, { nullable: true })
-  async user(@Ctx() { req }: ctx): Promise<UserResponseType | null> {
+  @Query(() => UserType, { nullable: true })
+  async user(@Ctx() { req }: appContext): Promise<UserType | null> {
     if (!req.session.userId) return null;
     const user = await User.findOne(req.session.userId, {
       relations: ["cart"],
     });
-    if (!user) return null;
-    user.cart.cartItems = await getCart(user.cart.id);
-    return { user };
+    const cart = await getCart(user!.cart.id);
+    return { user, cart };
   }
-  @Mutation(() => UserResponseType)
+
+  @Query(() => [User])
+  @UseMiddleware(isAdmin)
+  async users(): Promise<User[]> {
+    const users = await getConnection()
+      .getRepository(User)
+      .createQueryBuilder()
+      .getMany();
+    return users;
+  }
+
+  @Mutation(() => UserType)
   async register(
     @Arg("opts") opts: UserRegisterInputType,
-    @Ctx() { req }: ctx
-  ): Promise<UserResponseType> {
+    @Ctx() { req }: appContext
+  ): Promise<UserType> {
     const {
       firstName,
       lastName,
@@ -51,12 +65,10 @@ export class UserResolver {
       .join("");
     const ex = validatePassword(password);
     if (error)
-      return {
-        errors: [{ message: error.details[0].message, field: errorField }],
-      };
+      return { errors: [{ msg: error.details[0].message, field: errorField }] };
     if (ex.error)
       return {
-        errors: [{ message: ex.error.details[0].message, field: "password" }],
+        errors: [{ msg: ex.error.details[0].message, field: "password" }],
       };
     let user = await User.findOne({ where: { username } });
     if (user)
@@ -64,7 +76,7 @@ export class UserResolver {
         errors: [
           {
             field: "username",
-            message: `Username  ${username} is taken.`,
+            msg: `Username  ${username} is taken.`,
           },
         ],
       };
@@ -74,7 +86,7 @@ export class UserResolver {
         errors: [
           {
             field: "password2",
-            message: `Passwords don't match. try again.`,
+            msg: `Passwords don't match. try again.`,
           },
         ],
       };
@@ -86,7 +98,7 @@ export class UserResolver {
         errors: [
           {
             field: "email",
-            message: `Email address  ${email} is taken.`,
+            msg: `Email address  ${email} is taken.`,
           },
         ],
       };
@@ -101,45 +113,45 @@ export class UserResolver {
       password: hash,
       seller,
       admin,
-      createdAt: new Date(),
     }).save();
-    let cart = Cart.create({ user });
-    cart = await cart.save();
+    await Cart.create({ user }).save();
     req.session!.userId = user.id;
-    user.cart = cart;
-    return { user };
+    return { user, cart: [] };
   }
 
-  @Mutation(() => UserResponseType)
+  @Mutation(() => UserType)
   async login(
-    @Arg("opts") opts: LoginUserInputType,
-    @Ctx() { req }: ctx
-  ): Promise<UserResponseType> {
-    const user = await getConnection().manager.findOne(
-      User,
-      opts.usernameOrEmail.includes("@" && ".")
-        ? { email: opts.usernameOrEmail }
-        : { username: opts.usernameOrEmail },
-      { relations: ["cart"] }
+    @Arg("usernameOrEmail") usernameOrEmail: string,
+    @Arg("password") password: string,
+    @Ctx() { req }: appContext
+  ): Promise<UserType> {
+    const user = await User.findOne(
+      usernameOrEmail.includes("@" && ".")
+        ? { where: { email: usernameOrEmail } }
+        : { where: { username: usernameOrEmail } }
     );
+
     if (!user)
       return {
         errors: [
-          { field: "usernameOrEmail", message: "Invalid username or email." },
+          { field: "usernameOrEmail", msg: "Invalid username or email." },
         ],
       };
-    const ps = await argon.verify(user.password, opts.password);
-    if (!ps)
-      return { errors: [{ field: "password", message: `Invalid password.` }] };
 
-    const cartItems = await getCart(user.cart.id);
-    if (cartItems) user.cart.cartItems = cartItems;
+    const ps = await argon.verify(user.password, password);
+    if (!ps)
+      return { errors: [{ field: "password", msg: `Invalid password.` }] };
+
     req.session.userId = user.id;
-    return { user };
+    const userCart = await getConnection().manager.findOne(Cart, {
+      where: { userId: user.id },
+    });
+    const cart = await getCart(userCart!.id);
+    return { user, cart };
   }
 
   @Mutation(() => Boolean)
-  async logout(@Ctx() { req, res }: ctx): Promise<boolean> {
+  async logout(@Ctx() { req, res }: appContext): Promise<boolean> {
     return new Promise((resolve) =>
       req.session.destroy((err: any) => {
         res.clearCookie("sid");
@@ -151,7 +163,7 @@ export class UserResolver {
   @Mutation(() => Boolean)
   async forgotPassword(
     @Arg("email") email: string,
-    @Ctx() { redis }: ctx
+    @Ctx() { redis }: appContext
   ): Promise<boolean> {
     const user = await User.findOne({ where: { email } });
     if (!user) return false;
@@ -163,7 +175,7 @@ export class UserResolver {
       1000 * 60 * 60 * 72
     );
     await sendMail(
-      CORS_ORIGIN as string,
+      CORS_ORIGIN,
       email,
       "Password Reset",
       `<a href="${CORS_ORIGIN}/forgot-password/${token}"></a>`
@@ -175,7 +187,7 @@ export class UserResolver {
   async changePassword(
     @Arg("newPassword") newPassword: string,
     @Arg("token") token: string,
-    @Ctx() { redis, req }: ctx
+    @Ctx() { redis, req }: appContext
   ): Promise<boolean> {
     const key = RESET_PASSWORD_PREFIX + token;
     const userId = await redis.get(key);

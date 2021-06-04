@@ -1,31 +1,23 @@
-import { MiddlewareFn } from "type-graphql";
-import { getConnection } from "typeorm";
-import { ctx } from "../context";
-import { User } from "../entities/User";
+import { MiddlewareFn } from 'type-graphql';
+import { appContext } from '../context';
 
-export const isAuth: MiddlewareFn<ctx> = async (
-  { context },
-  next
-): Promise<MiddlewareFn<ctx>> => {
-  const { req } = context;
-  const user = await getConnection().manager.findOne(User, req.session.userId);
-  if (!user) throw new Error("UnAuthenticated request.");
+export const isAuth: MiddlewareFn<appContext> = ({ context }, next): Promise<MiddlewareFn<appContext> > => {
+    const { res } = context
+  if (!res.locals.isAuth) 
+    throw new Error('Unauthenticated');
   return next();
-};
+}
 
-export const isMerchant: MiddlewareFn<ctx> = async ({ context }, next) => {
-  const { req } = context;
-  const user = await getConnection().manager.findOne(User, req.session.userId);
-  if (!user) throw new Error("UnAuthenticated request.");
-
-  if (!user.admin && !user.seller)
-    throw new Error("Unauthorized request. Upgrade to a pro account.");
+export const isMerchant: MiddlewareFn<appContext> = ({ context }, next) => {
+  const { res } = context
+  if (!res.locals.user.admin && !res.locals.user.seller) 
+    throw new Error('Unauthorized. Upgrade to a pro account.');
   return next();
-};
+}
 
-export const isAdmin: MiddlewareFn<ctx> = async ({ context }, next) => {
-  const { req } = context;
-  const user = await getConnection().manager.findOne(User, req.session.userId);
-  if (!user?.admin) throw new Error("Unauthorized request. admin access only.");
+export const isAdmin: MiddlewareFn<appContext> = ({ context }, next) => {
+  const { res } = context
+  if (!res.locals.user.admin) 
+    throw new Error('Unauthorized, Admin access only.');
   return next();
-};
+}

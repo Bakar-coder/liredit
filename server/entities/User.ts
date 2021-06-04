@@ -1,4 +1,4 @@
-import { Field, GraphQLISODateTime, Int, ObjectType } from "type-graphql";
+import { Field, Int, ObjectType } from "type-graphql";
 import {
   BaseEntity,
   Column,
@@ -7,26 +7,19 @@ import {
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
-  Unique,
   UpdateDateColumn,
 } from "typeorm";
 import { Cart } from "./Cart";
-import { Photo } from "./Photo";
+import { Order } from "./Order";
 import { Post } from "./Post";
-import { Event } from "./Event";
-import { PostReview } from "./PostReview";
 import { Product } from "./Product";
-import {} from "./Event";
-import { ProductReview } from "./ProductReview";
-import { Media } from "./Media";
-import { Promotion } from "./Promotion";
-import { Billing } from "./Billing";
+import { Review } from "./Review";
 
 @ObjectType()
 @Entity()
 export class User extends BaseEntity {
-  @Field(() => Int)
-  @PrimaryGeneratedColumn({ type: "bigint" })
+  @Field(() => Int!)
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Field()
@@ -38,67 +31,52 @@ export class User extends BaseEntity {
   lastName: string;
 
   @Field()
-  @Column()
-  @Unique(["username"])
+  @Column({ unique: true })
   username: string;
 
   @Field()
-  @Column()
-  @Unique(["email"])
+  @Column({ unique: true })
   email: string;
-
-  @Column()
-  password: string;
 
   @Field()
   @Column()
   avatar: string;
 
-  @Field(() => Boolean)
+  @Column()
+  password: string;
+
+  @Field(() => Boolean, { nullable: true })
   @Column({ default: false })
   admin: boolean;
 
-  @Field(() => Boolean)
+  @Field(() => Boolean, { nullable: true })
   @Column({ default: false })
   seller: boolean;
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => Boolean, { nullable: true })
+  @Column({ default: false })
+  verified: boolean;
+
+  @Field()
   @CreateDateColumn()
   createdAt: Date;
 
-  @Field(() => GraphQLISODateTime)
+  @Field()
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @Field(() => Cart)
-  @OneToOne(() => Cart, (c) => c.user)
+  @OneToOne(() => Cart, (cart) => cart.user)
   cart: Cart;
 
-  @Field(() => Cart)
-  @OneToOne(() => Billing, (c) => c.user)
-  billing: Billing;
+  @OneToMany(() => Order, (order) => order.user)
+  orders: Order[];
 
-  @OneToMany(() => ProductReview, (p) => p.user)
-  productReviews: ProductReview[];
-
-  @OneToMany(() => PostReview, (p) => p.user)
-  postReviews: PostReview[];
-
-  @OneToMany(() => Post, (p) => p.user)
-  posts: Post[];
-
-  @OneToMany(() => Product, (p) => p.user)
+  @OneToMany(() => Product, (prod) => prod.user)
   products: Product[];
 
-  @OneToMany(() => Photo, (p) => p.user)
-  photos: Photo[];
+  @OneToMany(() => Post, (post) => post.user)
+  posts: Post[];
 
-  @OneToMany(() => Event, (e) => e.user)
-  events: Event[];
-
-  @OneToMany(() => Media, (m) => m.user)
-  media: Media[];
-
-  @OneToMany(() => Promotion, (p) => p.user)
-  promotions: Promotion[];
+  @OneToMany(() => Review, (rev) => rev.user)
+  reviews: Review[];
 }

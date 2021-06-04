@@ -1,2 +1,2 @@
 build:
-	docker build -t bakarcoder/ghettohustler-server:latest .
+	docker build -t api_server .

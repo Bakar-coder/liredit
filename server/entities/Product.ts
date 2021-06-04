@@ -1,12 +1,3 @@
-import { ProductReview } from "./ProductReview";
-
-import {
-  Field,
-  Int,
-  ObjectType,
-  GraphQLISODateTime,
-  Float,
-} from "type-graphql";
 import {
   BaseEntity,
   Column,
@@ -15,90 +6,80 @@ import {
   JoinColumn,
   ManyToOne,
   OneToMany,
-  PrimaryColumn,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-
-import { CartItem } from "./CartItem";
 import { User } from "./User";
-import { Category } from "./Category";
+import { CartItem } from "./CartItem";
+import { Field, Int, ObjectType } from "type-graphql";
 
 @ObjectType()
 @Entity()
 export class Product extends BaseEntity {
   @Field(() => Int)
-  @PrimaryGeneratedColumn({ type: "bigint" })
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @PrimaryColumn()
-  categoryId: number;
-
-  @PrimaryColumn()
+  @Field(() => Int)
+  @Column()
   userId: number;
 
   @Field()
   @Column()
+  category: string;
+
+  @Field()
+  @Column({ unique: true })
   title: string;
 
   @Field(() => Int)
-  @Column({ type: "int" })
+  @Column()
   stock: number;
 
-  @Field(() => Float)
-  @Column({ type: "float" })
+  @Field()
+  @Column({ type: "numeric" })
   price: number;
-
-  @Field(() => Float, { nullable: true })
-  @Column({ type: "float", nullable: true, default: null })
-  discount: number;
-
-  @Field(() => GraphQLISODateTime, { nullable: true })
-  @Column({ type: "date", nullable: true, default: null })
-  discountExpiration: Date = new Date();
 
   @Field()
   @Column({ type: "text" })
   description: string;
 
   @Field(() => String, { nullable: true })
-  @Column({ type: "text", default: null, nullable: true })
-  images: string;
+  @Column({ default: null, nullable: true })
+  discount?: number;
 
   @Field(() => String, { nullable: true })
   @Column({ default: null, nullable: true })
-  tags: string;
+  discountExpiration?: Date;
 
-  @Field(() => Boolean, { nullable: true })
+  @Field(() => String, { nullable: true })
+  @Column({ nullable: true })
+  tags?: string;
+
+  @Field()
+  @Column({ type: "text" })
+  images: string;
+
+  @Field()
   @Column({ default: false })
   featured: boolean;
 
-  @Field(() => Boolean, { nullable: true })
+  @Field()
   @Column({ default: true })
   published: boolean;
 
-  @Field(() => String)
+  @Field()
   @CreateDateColumn()
   createdAt: Date;
 
-  @Field(() => String)
+  @Field()
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @Field(() => User)
-  @ManyToOne(() => User, (u) => u.products, { onDelete: "CASCADE" })
-  @JoinColumn()
-  user: User;
-
-  @OneToMany(() => CartItem, (item) => item.product)
+  @OneToMany(() => CartItem, (items) => items.product)
   cartItems: CartItem[];
 
-  @Field(() => [ProductReview], { nullable: true })
-  @OneToMany(() => ProductReview, (item) => item.product)
-  reviews: ProductReview[];
-
-  @Field(() => Category)
-  @ManyToOne(() => Category, (cat) => cat.products, { onDelete: "CASCADE" })
+  @ManyToOne(() => User, (user) => user.products)
   @JoinColumn()
-  category: Category;
+  user: User;
 }
