@@ -9,7 +9,7 @@ WORKDIR /usr/app
 COPY ./package*.json ./yarn.lock ./
 
 # Install dependencies
-RUN yarn Install
+RUN yarn install
 
 # Copy all files
 COPY ./ ./
