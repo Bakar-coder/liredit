@@ -21,7 +21,7 @@ import {
   ProductResponseType,
   UpdateProductInputType,
 } from "../typeDefs/product";
-import { ctx } from "../context";
+import { appContext as ctx } from "../context";
 import { isAuth, isMerchant } from "../middleware/auth";
 import { Category } from "../entities/Category";
 import { User } from "../entities/User";
@@ -105,7 +105,7 @@ export class ProductResolver {
       images: JSON.stringify(file),
       title,
       stock,
-      category: cat,
+      category,
       price,
       description,
       tags,
@@ -140,7 +140,11 @@ export class ProductResolver {
       published,
     } = opts;
 
-    const { error } = updateProductValidation(opts);
+    const { error } = updateProductValidation({
+      ...opts,
+      discount: JSON.stringify(discount),
+      discountExpiration: JSON.stringify(discountExpiration),
+    });
 
     const errorField = error?.details[0].message
       .split(" ")[0]
@@ -180,7 +184,7 @@ export class ProductResolver {
     if (category) {
       let cat = await Category.findOne({ where: { name: category } });
       if (!cat) cat = Category.create({ name: category });
-      product.category = cat;
+      product.category = cat.name;
     }
 
     product.title = title;

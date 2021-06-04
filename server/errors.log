@@ -1024,3 +1024,16 @@
   label: 'logs',
   timestamp: '2021-06-03T23:24:54.608Z'
 }
+{
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 5432,
+  level: 'error',
+  message: 'connect ECONNREFUSED 127.0.0.1:5432 connect ECONNREFUSED 127.0.0.1:5432',
+  stack: 'Error: connect ECONNREFUSED 127.0.0.1:5432\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1138:16)',
+  label: 'logs',
+  timestamp: '2021-06-04T10:15:11.850Z'
+}
