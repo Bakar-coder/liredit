@@ -1,16 +1,6 @@
 version: "3.8"
 
 services:
-  nginx:
-    build:
-      context: ./nginx
-    container_name: nginx
-    networks:
-      - ghettohustler_network
-    ports:
-      - 80:80
-    restart: unless-stopped
-
   nextjs:
     build:
       context: ./client
@@ -64,6 +54,8 @@ networks:
     name: ghettohustler_network
 
 volumes:
+  certbot-webroot-evsoul:
+    certbot-letsencrypt:
   redis_data:
     driver: local
   postgres_data:
