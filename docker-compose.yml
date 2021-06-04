@@ -11,7 +11,7 @@ services:
       - 80:80
     restart: unless-stopped
 
-    nextjs:
+  nextjs:
     build:
       context: ./client
     container_name: nextjs
